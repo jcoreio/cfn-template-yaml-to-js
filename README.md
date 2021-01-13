@@ -20,11 +20,11 @@ if you run into any problems.
 
 ```
 npm i -g cfn-template-yaml-to-js
+```
 
 ## CLI
 
 ```
-
 # read from file, print to stdout
 
 cfn-template-yaml-to-js template.yaml
@@ -36,7 +36,4 @@ cfn-template-yaml-to-js template.yaml > file.js
 # read from stdin, print to stdout
 
 cat template.yaml | cfn-template-yaml-to-js
-
-```
-
 ```
