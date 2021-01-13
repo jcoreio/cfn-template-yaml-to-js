@@ -1,7 +1,7 @@
 {
-  "name": "typescript-library-skeleton",
+  "name": "cfn-template-yaml-to-js",
   "version": "0.0.0-development",
-  "description": "my personal ES2015 library project skeleton",
+  "description": "converts AWS CloudFormation templates from yaml directly to JS object literals",
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
@@ -23,9 +23,12 @@
     "open:coverage": "open coverage/lcov-report/index.html",
     "semantic-release": "semantic-release"
   },
+  "bin": {
+    "cfn-template-yaml-to-js": "./cli.js"
+  },
   "config": {
     "lint": "--cache --ext .js,.ts src test",
-    "mocha": "test/configure.js 'src/**/*.spec.ts'",
+    "mocha": "test/configure.js 'test/**/*.spec.ts'",
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
@@ -67,17 +70,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jedwards1211/typescript-library-skeleton.git"
+    "url": "https://github.com/jcoreio/cfn-template-yaml-to-js.git"
   },
   "keywords": [
-    "typescript"
+    "aws",
+    "cloudformation",
+    "converter"
   ],
   "author": "Andy Edwards",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jedwards1211/typescript-library-skeleton/issues"
+    "url": "https://github.com/jcoreio/cfn-template-yaml-to-js/issues"
   },
-  "homepage": "https://github.com/jedwards1211/typescript-library-skeleton#readme",
+  "homepage": "https://github.com/jcoreio/cfn-template-yaml-to-js#readme",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
@@ -96,6 +101,8 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@jedwards1211/commitlint-config": "^1.0.1",
     "@jedwards1211/eslint-config-typescript": "^1.0.0",
+    "@types/babel__generator": "^7.6.2",
+    "@types/babel__template": "^7.4.0",
     "@types/chai": "^4.2.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.6",
@@ -119,6 +126,10 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.5"
+    "@babel/generator": "^7.12.11",
+    "@babel/runtime": "^7.1.5",
+    "@babel/template": "^7.12.7",
+    "@babel/types": "^7.12.12",
+    "yaml": "^1.10.0"
   }
 }
