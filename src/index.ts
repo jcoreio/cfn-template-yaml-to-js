@@ -26,6 +26,15 @@ function convertKey(
   return convertPrimitive(value)
 }
 
+function convertTag(tag: string): t.Identifier | t.StringLiteral {
+  switch (tag) {
+    case '!Ref':
+      return t.identifier('Ref')
+    default:
+      return t.stringLiteral(tag.replace(/^!/, 'Fn::'))
+  }
+}
+
 type ConvertOptions = {
   indentation?: number
 }
@@ -59,10 +68,7 @@ export function convertYamlNodeToBabelNodeInner(
       const { tag, value } = yaml as y.Scalar
       if (tag) {
         return t.objectExpression([
-          t.objectProperty(
-            t.stringLiteral(tag.replace(/^!/, 'Fn::')),
-            convertPrimitive(value)
-          ),
+          t.objectProperty(convertTag(tag), convertPrimitive(value)),
         ])
       } else {
         return convertPrimitive(value)
@@ -93,12 +99,7 @@ export function convertYamlNodeToBabelNodeInner(
         )
       )
       return tag
-        ? t.objectExpression([
-            t.objectProperty(
-              t.stringLiteral(tag.replace(/^!/, 'Fn::')),
-              converted
-            ),
-          ])
+        ? t.objectExpression([t.objectProperty(convertTag(tag), converted)])
         : converted
     }
     case 'MAP': {

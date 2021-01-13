@@ -102,7 +102,6 @@
     "@jedwards1211/commitlint-config": "^1.0.1",
     "@jedwards1211/eslint-config-typescript": "^1.0.0",
     "@types/babel__generator": "^7.6.2",
-    "@types/babel__template": "^7.4.0",
     "@types/chai": "^4.2.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.6",
@@ -128,7 +127,6 @@
   "dependencies": {
     "@babel/generator": "^7.12.11",
     "@babel/runtime": "^7.1.5",
-    "@babel/template": "^7.12.7",
     "@babel/types": "^7.12.12",
     "yaml": "^1.10.0"
   }

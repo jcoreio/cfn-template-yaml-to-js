@@ -150,3 +150,5 @@ Resources:
           ToPort: '22'
           CidrIp:
             Ref: SSHLocation
+Outputs:
+  EC2Instance: !Ref EC2Instance

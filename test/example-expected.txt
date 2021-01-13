@@ -202,5 +202,10 @@
         }]
       }
     }
+  },
+  Outputs: {
+    EC2Instance: {
+      Ref: "EC2Instance"
+    }
   }
 }
